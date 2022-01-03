@@ -10,12 +10,11 @@ class Blockchain():
 	def __init__(self):
 		self.chain = []
 		self.current_transactions = []
-
 		# genesis block
-		self.new_block(previous_hash, proof=100)
+		self.new_block(previous_hash=1, proof=100)
 
 
-	def new_block(self, proof,  previous_hash=None):
+	def new_block(self, proof, previous_hash=None):
 		block = {
             'index': len(self.chain) + 1,
             'timestamp': time(),
@@ -25,7 +24,8 @@ class Blockchain():
         }
         # reset transactions:
         self.current_transactions = []
-        return self.chain.append(block)
+        self.chain.append(block)
+        return block
 
 
 
@@ -42,7 +42,7 @@ class Blockchain():
 		"""
         Simple Proof of Work Algorithm:
          - Find a number p' such that hash(pp') contains leading 4 zeroes,
-            where p is the previous p'
+            where p is the previous (calculated proof) p'
          - p is the previous proof, and p' is the new proof
         :param last_proof: <int>
         :return: <int>
