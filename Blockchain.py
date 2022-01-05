@@ -36,7 +36,7 @@ class Blockchain:
         """
         Simple Proof of Work Algorithm:
          - Find a number p' such that hash(pp') contains leading 4 zeroes,
-            where p is the previous (calculated proof) p'
+            where p is the previous (calculated proof)
          - p is the previous proof, and p' is the new proof
         :param self:
         :param last_proof: <int>

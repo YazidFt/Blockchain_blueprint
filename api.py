@@ -40,11 +40,9 @@ def mine():
 @app.route('/transactions/new', methods=['POST'])
 def new_transaction():
     params = request.get_json()
-    print(params)
     if len({'sender', 'recipient', 'amount'}.
                    intersection(set(params.keys()))) == 3:
         # add new transaction
-        print('yes')
         blockchain.new_transaction(
             params['sender'],
             params['recipient'],
