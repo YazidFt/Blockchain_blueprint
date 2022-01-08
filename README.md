@@ -1,1 +1,1 @@
-# Blockchain-blueprint
+# Blockchain Example
